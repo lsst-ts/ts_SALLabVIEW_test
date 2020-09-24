@@ -5,14 +5,7 @@ module Test {
 	 const long Test_shared_SummaryState_OfflineState=4;
 	 const long Test_shared_SummaryState_StandbyState=5;
 	struct arrays {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	boolean0[5];
 	  octet	byte0[5];
 	  short	short0[5];
@@ -29,85 +22,36 @@ module Test {
 	#pragma keylist arrays TestID
 	 const long indexEnumeration_any=1;
 	struct command_abort {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	value;
 	};
 	#pragma keylist command_abort TestID
 	struct command_disable {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	value;
 	};
 	#pragma keylist command_disable TestID
 	struct command_enable {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	value;
 	};
 	#pragma keylist command_enable TestID
 	struct command_enterControl {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	value;
 	};
 	#pragma keylist command_enterControl TestID
 	struct command_exitControl {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	value;
 	};
 	#pragma keylist command_exitControl TestID
 	struct command_fault {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	};
 	#pragma keylist command_fault TestID
 	struct command_setArrays {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	boolean0[5];
 	  octet	byte0[5];
 	  short	short0[5];
@@ -123,39 +67,18 @@ module Test {
 	};
 	#pragma keylist command_setArrays TestID
 	struct command_setAuthList {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string	authorizedUsers;
 	  string	nonAuthorizedCSCs;
 	};
 	#pragma keylist command_setAuthList TestID
 	struct command_setLogLevel {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  long	level;
 	};
 	#pragma keylist command_setLogLevel TestID
 	struct command_setScalars {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	boolean0;
 	  octet	byte0;
 	  string	char0;
@@ -173,77 +96,35 @@ module Test {
 	};
 	#pragma keylist command_setScalars TestID
 	struct command_setValue {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string<256>	parametersAndValues;
 	};
 	#pragma keylist command_setValue TestID
 	struct command_standby {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	value;
 	};
 	#pragma keylist command_standby TestID
 	struct command_start {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string<256>	settingsToApply;
 	};
 	#pragma keylist command_start TestID
 	struct command_wait {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  long	cmdSeqNum;
 	  long	ack;
 	  double	duration;
 	};
 	#pragma keylist command_wait TestID
 	struct logevent_appliedSettingsMatchStart {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	appliedSettingsMatchStartIsTrue;
 	  long	priority;
 	};
 	#pragma keylist logevent_appliedSettingsMatchStart TestID
 	struct logevent_arrays {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	boolean0[5];
 	  octet	byte0[5];
 	  short	short0[5];
@@ -264,28 +145,14 @@ module Test {
 	 const long arrays_Int0ValueEnum_Four=04;
 	 const long arrays_Int0ValueEnum_Five=0x05;
 	struct logevent_authList {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string	authorizedUsers;
 	  string	nonAuthorizedCSCs;
 	  long	priority;
 	};
 	#pragma keylist logevent_authList TestID
 	struct logevent_errorCode {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  long	errorCode;
 	  string	errorReport;
 	  string	traceback;
@@ -293,40 +160,19 @@ module Test {
 	};
 	#pragma keylist logevent_errorCode TestID
 	struct logevent_heartbeat {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	heartbeat;
 	  long	priority;
 	};
 	#pragma keylist logevent_heartbeat TestID
 	struct logevent_logLevel {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  long	level;
 	  long	priority;
 	};
 	#pragma keylist logevent_logLevel TestID
 	struct logevent_logMessage {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string	name;
 	  long	level;
 	  string	message;
@@ -339,14 +185,7 @@ module Test {
 	};
 	#pragma keylist logevent_logMessage TestID
 	struct logevent_scalars {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	boolean0;
 	  octet	byte0;
 	  string	char0;
@@ -375,14 +214,7 @@ module Test {
 	 const long Test_shared_ValueEnum_Four=04;
 	 const long Test_shared_ValueEnum_Five=0x05;
 	struct logevent_settingVersions {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string	recommendedSettingsVersion;
 	  string	recommendedSettingsLabels;
 	  string	settingsUrl;
@@ -390,41 +222,20 @@ module Test {
 	};
 	#pragma keylist logevent_settingVersions TestID
 	struct logevent_settingsApplied {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string<256>	settingsVersion;
 	  string	otherSettingsEvents;
 	  long	priority;
 	};
 	#pragma keylist logevent_settingsApplied TestID
 	struct logevent_simulationMode {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  long	mode;
 	  long	priority;
 	};
 	#pragma keylist logevent_simulationMode TestID
 	struct logevent_softwareVersions {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  string<16>	salVersion;
 	  string<16>	xmlVersion;
 	  string<16>	openSpliceVersion;
@@ -434,27 +245,13 @@ module Test {
 	};
 	#pragma keylist logevent_softwareVersions TestID
 	struct logevent_summaryState {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  long	summaryState;
 	  long	priority;
 	};
 	#pragma keylist logevent_summaryState TestID
 	struct scalars {
-	  long	TestID;	//private
-	  string<8>	private_revCode; //private
-	  double	private_sndStamp;    //private
 	  double	private_rcvStamp;    //private
-	  long	private_seqNum;        //private
-	  string	private_identity;    //private
-	  long	private_origin;        //private
-	  long	private_host;          //private
 	  boolean	boolean0;
 	  octet	byte0;
 	  string	char0;
@@ -472,13 +269,7 @@ module Test {
 	};
 	#pragma keylist scalars TestID
 	struct ackcmd {
-  string<8>	private_revCode; //private
-  double	private_sndStamp;    //private
   double	private_rcvStamp;    //private
-  long	private_seqNum;        //private
-  string	private_identity;    //private
-  long	private_origin;        //private
-  long	private_host;          //private
 	  long	TestID;
 	  long	cmdSeqNum;
 	  long	ack;
