@@ -1,5 +1,9 @@
 # Version History
 
+0.0.2
+
+- Add the **testConnect.vi** to test the connection and release of the shared memory.
+
 0.0.1
 
 - Add the **LibReader** to read the event and telemetry in SAL LabVIEW library.
