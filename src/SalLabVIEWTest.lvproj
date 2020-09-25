@@ -13,9 +13,17 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="tests" Type="Folder">
 			<Item Name="Utility" Type="Folder">
-				<Item Name="testCase" Type="Folder"/>
-				<Item Name="getTestDataPath.vi" Type="VI" URL="../../tests/Utility/getTestDataPath.vi"/>
-				<Item Name="getPathOfTestLvLib.vi" Type="VI" URL="../../tests/Utility/getPathOfTestLvLib.vi"/>
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testGetDirShellScript.vi" Type="VI" URL="../../tests/Utility/testCase/testGetDirShellScript.vi"/>
+					<Item Name="testGetTestDataPath.vi" Type="VI" URL="../../tests/Utility/testCase/testGetTestDataPath.vi"/>
+					<Item Name="testGetPathOfTestLvLib.vi" Type="VI" URL="../../tests/Utility/testCase/testGetPathOfTestLvLib.vi"/>
+					<Item Name="testGetPathOfTestMonitor.vi" Type="VI" URL="../../tests/Utility/testCase/testGetPathOfTestMonitor.vi"/>
+					<Item Name="testGetPathOfLogDir.vi" Type="VI" URL="../../tests/Utility/testCase/testGetPathOfLogDir.vi"/>
+					<Item Name="testRmFileIfExist.vi" Type="VI" URL="../../tests/Utility/testCase/testRmFileIfExist.vi"/>
+					<Item Name="testCmdLineParser.vi" Type="VI" URL="../../tests/Utility/testCase/testCmdLineParser.vi"/>
+					<Item Name="testGetConfigFileDefault.vi" Type="VI" URL="../../tests/Utility/testCase/testGetConfigFileDefault.vi"/>
+				</Item>
+				<Item Name="testUtility.vi" Type="VI" URL="../../tests/Utility/testUtility.vi"/>
 			</Item>
 			<Item Name="LibReader" Type="Folder">
 				<Item Name="testCase" Type="Folder">
@@ -41,19 +49,43 @@
 				</Item>
 				<Item Name="testLibReader.vi" Type="VI" URL="../../tests/LibReader/testLibReader.vi"/>
 			</Item>
+			<Item Name="SalProcess" Type="Folder">
+				<Item Name="testCase" Type="Folder">
+					<Item Name="testGetCscIndex.vi" Type="VI" URL="../../tests/SalProcess/testCase/testGetCscIndex.vi"/>
+				</Item>
+				<Item Name="typeDef" Type="Folder">
+					<Item Name="complexNum.ctl" Type="VI" URL="../../tests/SalProcess/typeDef/complexNum.ctl"/>
+				</Item>
+				<Item Name="addOne.vi" Type="VI" URL="../../tests/SalProcess/addOne.vi"/>
+				<Item Name="addComplexOne.vi" Type="VI" URL="../../tests/SalProcess/addComplexOne.vi"/>
+				<Item Name="getValueSimple.vi" Type="VI" URL="../../tests/SalProcess/getValueSimple.vi"/>
+				<Item Name="runViComplex.vi" Type="VI" URL="../../tests/SalProcess/runViComplex.vi"/>
+				<Item Name="testSalProcess.vi" Type="VI" URL="../../tests/SalProcess/testSalProcess.vi"/>
+			</Item>
 			<Item Name="testAll.vi" Type="VI" URL="../../tests/testAll.vi"/>
 			<Item Name="testAllWithXmlReport.vi" Type="VI" URL="../../tests/testAllWithXmlReport.vi"/>
 		</Item>
 		<Item Name="LibReader" Type="Folder">
 			<Item Name="LibReader.lvclass" Type="LVClass" URL="../LibReader/LibReader.lvclass"/>
 		</Item>
-		<Item Name="TestProcess" Type="Folder">
-			<Item Name="TestProcess.lvclass" Type="LVClass" URL="../TestProcess/TestProcess.lvclass"/>
+		<Item Name="SalProcess" Type="Folder">
+			<Item Name="SalProcess.lvclass" Type="LVClass" URL="../SalProcess/SalProcess.lvclass"/>
+		</Item>
+		<Item Name="SalTestTask" Type="Folder">
+			<Item Name="connectTask.vi" Type="VI" URL="../SalTestTask/connectTask.vi"/>
 		</Item>
 		<Item Name="Utility" Type="Folder">
 			<Item Name="buildPathFromStrArr.vi" Type="VI" URL="../Utility/buildPathFromStrArr.vi"/>
 			<Item Name="getDirShellScript.vi" Type="VI" URL="../Utility/getDirShellScript.vi"/>
+			<Item Name="getPathOfTestData.vi" Type="VI" URL="../Utility/getPathOfTestData.vi"/>
+			<Item Name="getPathOfTestLvLib.vi" Type="VI" URL="../Utility/getPathOfTestLvLib.vi"/>
+			<Item Name="getPathOfTestMonitor.vi" Type="VI" URL="../Utility/getPathOfTestMonitor.vi"/>
+			<Item Name="getPathOfLogDir.vi" Type="VI" URL="../Utility/getPathOfLogDir.vi"/>
+			<Item Name="rmFileIfExist.vi" Type="VI" URL="../Utility/rmFileIfExist.vi"/>
+			<Item Name="cmdLineParser.vi" Type="VI" URL="../Utility/cmdLineParser.vi"/>
+			<Item Name="getConfigFileDefault.vi" Type="VI" URL="../Utility/getConfigFileDefault.vi"/>
 		</Item>
+		<Item Name="testConnect.vi" Type="VI" URL="../testConnect.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>

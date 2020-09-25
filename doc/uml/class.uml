@@ -1,4 +1,3 @@
 @startuml
-class LibReader
-class TestProcess
+SalProcess *-- LibReader
 @enduml
