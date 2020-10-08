@@ -236,10 +236,10 @@ module Test {
 	#pragma keylist logevent_simulationMode TestID
 	struct logevent_softwareVersions {
 	  double	private_rcvStamp;    //private
-	  string<16>	salVersion;
-	  string<16>	xmlVersion;
-	  string<16>	openSpliceVersion;
-	  string<16>	cscVersion;
+	  string<256>	salVersion;
+	  string<256>	xmlVersion;
+	  string<256>	openSpliceVersion;
+	  string<256>	cscVersion;
 	  string	subsystemVersions;
 	  long	priority;
 	};
