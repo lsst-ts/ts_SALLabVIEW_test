@@ -33,10 +33,10 @@ ulimit -s 100000
 export LSST_DDS_DOMAIN=test
 ```
 
-5. Output the debug message in SAL monitor by the tag of `LSST_{CSC}_LVDEBUG`. In this package, the `Test` commandable SAL component (CSC) is used. Do the following in the command line:
+5. Output the debug message in SAL monitor by the tag of `LSST_{CSC}_LVDEBUG`, which the capitalized commandable SAL component (CSC) name is used. In this package, the `Test` CSC is used. The user can use the debug level of 1 or 2. Do the following in the command line:
 
 ```bash
-export LSST_Test_LVDEBUG=1
+export LSST_TEST_LVDEBUG=$DEBUG_LEVEL
 ```
 
 6. When running the SAL LabVIEW monitor, the `TestID` (or CSC index, used in the Rotator and Hexapod CSCs) is needed. If you just use LabVIEW->LabVIEW, it uses the default `TestID=0` in the `shmConnect()` call. The C++ uses `TestID=1`. If you use `TestID=1` as the `shmConnect()` argument you can test with C++ and LabVIEW in the same session. For example, you can do:

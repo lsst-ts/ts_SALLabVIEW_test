@@ -1,5 +1,14 @@
 # Version History
 
+0.0.3
+
+- Update the use of debug message in **README.md**.
+- Use the test data with the following packages:
+  - ts_sal (commit: c4db06e)
+  - ts_idl (commit: b378b92)
+  - ts_opensplice (commit: 0801214)
+  - ts_xml (commit: 0878d18)
+
 0.0.2
 
 - Add the **testConnect.vi** to test the connection and release of the shared memory.
