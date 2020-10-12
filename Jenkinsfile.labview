@@ -2,7 +2,15 @@
 
 pipeline {
 
-    agent any
+    agent {
+        // Enter the docker as the root for the permission issue of Xvnc
+        docker {
+            image 'cagvm3.ctio.noao.edu:8082/centos7/labview2018_sp1_pro:caraya_vnc'
+            registryUrl 'http://cagvm3.ctio.noao.edu:8082/'
+            registryCredentialsId 'docker-nexus'
+            args '-u root'
+        }
+    }
 
     triggers {
         pollSCM('H * * * *')
@@ -15,11 +23,28 @@ pipeline {
 
     stages {
 
+        stage('Install Tools') {
+            // Use the xdotool to circumvent the prompt window of login in LabVIEW.
+            steps {
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh """
+                        yum install -y xdotool
+                    """
+                }
+            }
+        }
+
         stage('Unit Tests') {
             // Add the timeout to abort the stage if needed. This is important
             // for the GUI related test (Xvnc or LabVIEW may fail).
+            // The .Xauthority file is needed for Xvnc plugin to work. However,
+            // it looks like we need to do this manually and commit the
+            // container instead of going through the Dockerfile or Jenkinsfile.
+            // To do this, use 'vncserver :10' followed by 'vncserver -kill :10'.
+            // It is noted that the display ID may or may not be :10. The
+            // command of 'vncserver -list' can be used to check this.
             options {
-                timeout(time: 20, unit: "SECONDS")
+                timeout(time: 80, unit: "SECONDS")
             }
 
             steps {
@@ -27,7 +52,7 @@ pipeline {
                     // Pytest needs to export the junit report.
                     withEnv(["HOME=${env.WORKSPACE}"]) {
                         sh """
-                            timeout 10 labview64 tests/testAllWithXmlReport.vi || true
+                            xdotool key --repeat 5 --delay 1000 Return | timeout 60 labview64 tests/testAllWithXmlReport.vi || true
                         """
                     }
                 }
@@ -37,6 +62,15 @@ pipeline {
 
     post {
         always {
+            // Change the ownership of workspace to Jenkins for the clean up
+            // This is to work around the condition that the user ID of jenkins
+            // is 1000 on CTIO Jenkins instance. In this post stage, it is the
+            // jenkins to do the following clean up instead of the root in the
+            // docker container.
+            withEnv(["HOME=${env.WORKSPACE}"]) {
+                sh 'chown -R 1000:1000 ${HOME}/'
+            }
+
             // The path of xml needed by JUnit is relative to
             // the workspace.
             junit "${env.XML_REPORT}"
