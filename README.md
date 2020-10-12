@@ -67,7 +67,10 @@ The available shell scripts are under the `shellScript/` directory.
 
 ## SAL LabVIEW Vi Test
 
-The SAL LabVIEW Vi related tests are in the `src/` directory. The output will be in the `log/` directory. The test vi can be executed from the command line as the following (use the absolute file paths of SAL LabVIEW monitor file and library):
+The SAL LabVIEW Vi related tests are in the `src/` directory. The output will be in the `log/` directory.
+The available test vis are listed in the following:
+
+1. **testConnect.vi**: Test the connection and release of shared memory. The test vi can be executed from the command line as the following (use the absolute file paths of SAL LabVIEW monitor file and library):
 
 ``` bash
 labview64 $path_to_test_vi -- $abs_path_to_monitor_file $abs_path_to_lvlib
@@ -81,6 +84,16 @@ labview64 src/testConnect.vi -- /home/ttsai/Documents/github/ts_SALLabVIEW_test/
 
 If the input files are not assigned, the default ones in the `tests/testData/` directory will be used.
 
-The available test vis are listed in the following:
+2. **testGetEventTask.vi**: Test to get the SAL event by LabVIEW. At this moment, only the event of summary state is supported. The default value is in `config/event.ini`. The test condition is in `config/default.ini`. The result will output in `log/reportGetEvent.txt`. The command is:
 
-1. **testConnect.vi**: Test the connection and release of shared memory.
+```bash
+labview64 $path_to_test_vi -- $abs_path_to_monitor_file $abs_path_to_lvlib $abs_path_to_cpp_send_summary_state
+```
+
+The third argument is the absolute path of cpp executable of sending the summary state.
+
+For example,
+
+```bash
+labview64 src/testGetEventTask.vi -- /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test_Monitor /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test.lvlib /home/ttsai/Documents/github/ts_sal/test/Test/cpp/src/sacpp_Test_summaryState_send
+```

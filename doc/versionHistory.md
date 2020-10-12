@@ -3,6 +3,8 @@
 0.0.3
 
 - Update the use of debug message in **README.md**.
+- Add the **testGetEventTask.vi** to test to get the SAL event by LabVIEW.
+- Update the **Jenkinsfile.labview** to use the private docker image in CTIO nexus.
 - Use the test data with the following packages:
   - ts_sal (commit: c4db06e)
   - ts_idl (commit: b378b92)
