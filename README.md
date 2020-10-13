@@ -33,10 +33,10 @@ ulimit -s 100000
 export LSST_DDS_DOMAIN=test
 ```
 
-5. Output the debug message in SAL monitor by the tag of `LSST_{CSC}_LVDEBUG`. In this package, the `Test` commandable SAL component (CSC) is used. Do the following in the command line:
+5. Output the debug message in SAL monitor by the tag of `LSST_{CSC}_LVDEBUG`, which the capitalized commandable SAL component (CSC) name is used. In this package, the `Test` CSC is used. The user can use the debug level of 1 or 2. Do the following in the command line:
 
 ```bash
-export LSST_Test_LVDEBUG=1
+export LSST_TEST_LVDEBUG=$DEBUG_LEVEL
 ```
 
 6. When running the SAL LabVIEW monitor, the `TestID` (or CSC index, used in the Rotator and Hexapod CSCs) is needed. If you just use LabVIEW->LabVIEW, it uses the default `TestID=0` in the `shmConnect()` call. The C++ uses `TestID=1`. If you use `TestID=1` as the `shmConnect()` argument you can test with C++ and LabVIEW in the same session. For example, you can do:
@@ -67,7 +67,10 @@ The available shell scripts are under the `shellScript/` directory.
 
 ## SAL LabVIEW Vi Test
 
-The SAL LabVIEW Vi related tests are in the `src/` directory. The output will be in the `log/` directory. The test vi can be executed from the command line as the following (use the absolute file paths of SAL LabVIEW monitor file and library):
+The SAL LabVIEW Vi related tests are in the `src/` directory. The output will be in the `log/` directory.
+The available test vis are listed in the following:
+
+1. **testConnect.vi**: Test the connection and release of shared memory. The test vi can be executed from the command line as the following (use the absolute file paths of SAL LabVIEW monitor file and library):
 
 ``` bash
 labview64 $path_to_test_vi -- $abs_path_to_monitor_file $abs_path_to_lvlib
@@ -81,6 +84,16 @@ labview64 src/testConnect.vi -- /home/ttsai/Documents/github/ts_SALLabVIEW_test/
 
 If the input files are not assigned, the default ones in the `tests/testData/` directory will be used.
 
-The available test vis are listed in the following:
+2. **testGetEventTask.vi**: Test to get the SAL event by LabVIEW. At this moment, only the event of summary state is supported. The default value is in `config/event.ini`. The test condition is in `config/default.ini`. The result will output in `log/reportGetEvent.txt`. The command is:
 
-1. **testConnect.vi**: Test the connection and release of shared memory.
+```bash
+labview64 $path_to_test_vi -- $abs_path_to_monitor_file $abs_path_to_lvlib $abs_path_to_cpp_send_summary_state
+```
+
+The third argument is the absolute path of cpp executable of sending the summary state.
+
+For example,
+
+```bash
+labview64 src/testGetEventTask.vi -- /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test_Monitor /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test.lvlib /home/ttsai/Documents/github/ts_sal/test/Test/cpp/src/sacpp_Test_summaryState_send
+```
