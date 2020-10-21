@@ -49,6 +49,8 @@ In the connect vi, put the same `TestID` value:
 
 ![Connect Vi](doc/image/connectVi.png)
 
+For the singleton such as `MTM2`, the TestID is not required.
+
 ## Do the Unit Test
 
 1. You can run the `testAll.vi` under the `tests/` directory in `SalLabVIEWTest.lvproj` to do the unit tests by using the Caraya unit test framework.
