@@ -5,7 +5,7 @@ pipeline {
     agent {
         // Enter the docker as the root for the permission issue of Xvnc
         docker {
-            image 'cagvm3.ctio.noao.edu:8082/centos7/labview2018_sp1_pro:caraya_vnc'
+            image 'cagvm3.ctio.noao.edu:8082/centos7/labview2018sp1_pro:caraya_vnc'
             registryUrl 'http://cagvm3.ctio.noao.edu:8082/'
             registryCredentialsId 'docker-nexus'
             args '-u root'
@@ -22,17 +22,6 @@ pipeline {
     }
 
     stages {
-
-        stage('Install Tools') {
-            // Use the xdotool to circumvent the prompt window of login in LabVIEW.
-            steps {
-                withEnv(["HOME=${env.WORKSPACE}"]) {
-                    sh """
-                        yum install -y xdotool
-                    """
-                }
-            }
-        }
 
         stage('Unit Tests') {
             // Add the timeout to abort the stage if needed. This is important

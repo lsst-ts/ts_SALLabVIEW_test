@@ -1,5 +1,9 @@
 # Version History
 
+0.0.4
+
+- Use the new docker image in **Jenkinsfile.labview** and remove the not-needed step.
+
 0.0.3
 
 - Update the use of debug message in **README.md**.
