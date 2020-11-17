@@ -27,10 +27,10 @@ ulimit -s 100000
 
 3. Make sure the repository of **ts_idl** is next to the **ts_sal** for the environment variable of `LSST_DDS_QOS`, which is setup in the step 2.
 
-4. Assign the domain name of data distribution service (DDS). For example,
+4. Assign the partition name of data distribution service (DDS). For example,
 
 ```bash
-export LSST_DDS_DOMAIN=test
+export LSST_DDS_PARTITION_PREFIX=test
 ```
 
 5. Output the debug message in SAL monitor by the tag of `LSST_{CSC}_LVDEBUG`, which the capitalized commandable SAL component (CSC) name is used. In this package, the `Test` CSC is used. The user can use the debug level of 1 or 2. Do the following in the command line:
