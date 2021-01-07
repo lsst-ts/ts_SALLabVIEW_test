@@ -10,10 +10,16 @@ This package is used to do the automatic test of service abstraction layer (SAL)
 ## Needed Package
 
 - [ts_sal](https://github.com/lsst-ts/ts_sal)
-- [ts_idl](https://github.com/lsst-ts/ts_idl) (Needed by ts_sal)
+- [ts_idl](https://github.com/lsst-ts/ts_idl) (Needed by **ts_sal**)
 - [ts_opensplice](https://github.com/lsst-ts/ts_opensplice) (Use OpenSpliceDDS V6.9)
 - JKI VI Package Manager 2017 (vipm)
-- Caraya Unit Test Framework (installed by vipm)
+- Caraya Unit Test Framework (installed by `vipm`)
+- OpenG Application Control Library (installed by `vipm`)
+- OpenG Array Library (installed by `vipm`)
+- OpenG Error Library (installed by `vipm`)
+- OpenG File Library (installed by `vipm`)
+- OpenG LabVIEW Data Library (installed by `vipm`)
+- OpenG String Library (installed by `vipm`)
 
 ## Use of SAL
 
@@ -61,6 +67,14 @@ For the singleton such as `MTM2`, the TestID is not required.
 labview64 tests/testAllWithXmlReport.vi
 ```
 
+## Configuration File
+
+The configuration file is in the `config/` directory.
+
+1. **default.ini**: The default values in the SAL related tests. This should fit the `src/TypeDef/summaryState.ctl`.
+2. **sharedEnum.ini**: The mapping of shared enumeration in IDL file.
+3. **event.ini**: The test values of the SAL event.
+
 ## Shell Script
 
 The available shell scripts are under the `shellScript/` directory.
@@ -86,7 +100,7 @@ labview64 src/testConnect.vi -- /home/ttsai/Documents/github/ts_SALLabVIEW_test/
 
 If the input files are not assigned, the default ones in the `tests/testData/` directory will be used.
 
-2. **testGetEventTask.vi**: Test to get the SAL event by LabVIEW. At this moment, only the event of summary state is supported. The default value is in `config/event.ini`. The test condition is in `config/default.ini`. The result will output in `log/reportGetEvent.txt`. The command is:
+2. **testGetEventTask.vi**: Test to get the SAL event by LabVIEW. At this moment, only the event of summary state is supported. The result will output in `log/reportGetEvent.txt`. The command is:
 
 ```bash
 labview64 $path_to_test_vi -- $abs_path_to_monitor_file $abs_path_to_lvlib $abs_path_to_cpp_send_summary_state
@@ -98,4 +112,18 @@ For example,
 
 ```bash
 labview64 src/testGetEventTask.vi -- /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test_Monitor /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test.lvlib /home/ttsai/Documents/github/ts_sal/test/Test/cpp/src/sacpp_Test_summaryState_send
+```
+
+3. **testLogEventTask.vi**: Test to log the SAL event by LabVIEW. At this moment, only the event of summary state is supported. The output of subscription will be in `log/outputSubLog.txt`. The command is:
+
+```bash
+labview64 $path_to_test_vi -- $abs_path_to_monitor_file $abs_path_to_lvlib $abs_path_to_cpp_recv_summary_state
+```
+
+The third argument is the absolute path of cpp executable of receiving the summary state.
+
+For example,
+
+```bash
+labview64 src/testLogEventTask.vi -- /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test_Monitor /home/ttsai/Documents/github/ts_SALLabVIEW_test/tests/testData/SALLV_Test.lvlib /home/ttsai/Documents/github/ts_sal/test/Test/cpp/src/sacpp_Test_summaryState_log
 ```
