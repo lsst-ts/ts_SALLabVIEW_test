@@ -23,6 +23,7 @@
 					<Item Name="testCmdLineParser.vi" Type="VI" URL="../../tests/Utility/testCase/testCmdLineParser.vi"/>
 					<Item Name="testGetConfigFileDefault.vi" Type="VI" URL="../../tests/Utility/testCase/testGetConfigFileDefault.vi"/>
 					<Item Name="testGetConfig.vi" Type="VI" URL="../../tests/Utility/testCase/testGetConfig.vi"/>
+					<Item Name="testGetConfigFileSharedEnum.vi" Type="VI" URL="../../tests/Utility/testCase/testGetConfigFileSharedEnum.vi"/>
 				</Item>
 				<Item Name="testUtility.vi" Type="VI" URL="../../tests/Utility/testUtility.vi"/>
 			</Item>
@@ -54,6 +55,10 @@
 				<Item Name="testCase" Type="Folder">
 					<Item Name="testGetCscIndex.vi" Type="VI" URL="../../tests/SalProcess/testCase/testGetCscIndex.vi"/>
 					<Item Name="testGetConfigEventTest.vi" Type="VI" URL="../../tests/SalProcess/testCase/testGetConfigEventTest.vi"/>
+					<Item Name="testSubEventCpp.vi" Type="VI" URL="../../tests/SalProcess/testCase/testSubEventCpp.vi"/>
+					<Item Name="testRunViWithInput.vi" Type="VI" URL="../../tests/SalProcess/testCase/testRunViWithInput.vi"/>
+					<Item Name="testRunViWithOutput.vi" Type="VI" URL="../../tests/SalProcess/testCase/testRunViWithOutput.vi"/>
+					<Item Name="testGetEnumSummaryState.vi" Type="VI" URL="../../tests/SalProcess/testCase/testGetEnumSummaryState.vi"/>
 				</Item>
 				<Item Name="typeDef" Type="Folder">
 					<Item Name="complexNum.ctl" Type="VI" URL="../../tests/SalProcess/typeDef/complexNum.ctl"/>
@@ -61,8 +66,10 @@
 				<Item Name="addOne.vi" Type="VI" URL="../../tests/SalProcess/addOne.vi"/>
 				<Item Name="addComplexOne.vi" Type="VI" URL="../../tests/SalProcess/addComplexOne.vi"/>
 				<Item Name="getValueSimple.vi" Type="VI" URL="../../tests/SalProcess/getValueSimple.vi"/>
+				<Item Name="getPathOfTestVi.vi" Type="VI" URL="../../tests/SalProcess/getPathOfTestVi.vi"/>
 				<Item Name="runViComplex.vi" Type="VI" URL="../../tests/SalProcess/runViComplex.vi"/>
 				<Item Name="runViComplexNode.vi" Type="VI" URL="../../tests/SalProcess/runViComplexNode.vi"/>
+				<Item Name="putValToComplexNumByRef.vi" Type="VI" URL="../../tests/SalProcess/putValToComplexNumByRef.vi"/>
 				<Item Name="testSalProcess.vi" Type="VI" URL="../../tests/SalProcess/testSalProcess.vi"/>
 			</Item>
 			<Item Name="VariantTool" Type="Folder">
@@ -95,14 +102,20 @@
 			<Item Name="getPathOfLogDir.vi" Type="VI" URL="../Utility/getPathOfLogDir.vi"/>
 			<Item Name="rmFileIfExist.vi" Type="VI" URL="../Utility/rmFileIfExist.vi"/>
 			<Item Name="cmdLineParser.vi" Type="VI" URL="../Utility/cmdLineParser.vi"/>
-			<Item Name="cmdLineParser_getEvent.vi" Type="VI" URL="../Utility/cmdLineParser_getEvent.vi"/>
+			<Item Name="cmdLineParser_eventCpp.vi" Type="VI" URL="../Utility/cmdLineParser_eventCpp.vi"/>
 			<Item Name="getConfigFileDefault.vi" Type="VI" URL="../Utility/getConfigFileDefault.vi"/>
 			<Item Name="getConfig_summaryState.vi" Type="VI" URL="../Utility/getConfig_summaryState.vi"/>
+			<Item Name="getConfigFileSharedEnum.vi" Type="VI" URL="../Utility/getConfigFileSharedEnum.vi"/>
+		</Item>
+		<Item Name="TypeDef" Type="Folder">
+			<Item Name="summaryState.ctl" Type="VI" URL="../TypeDef/summaryState.ctl"/>
 		</Item>
 		<Item Name="VariantTool" Type="Folder">
 			<Item Name="getValFromVariant.vi" Type="VI" URL="../VariantTool/getValFromVariant.vi"/>
 			<Item Name="getValFromVariant_double.vi" Type="VI" URL="../VariantTool/getValFromVariant_double.vi"/>
 			<Item Name="getValFromVariant_I32.vi" Type="VI" URL="../VariantTool/getValFromVariant_I32.vi"/>
+			<Item Name="getValFromVariant_string.vi" Type="VI" URL="../VariantTool/getValFromVariant_string.vi"/>
+			<Item Name="getValFromVariant_enum.vi" Type="VI" URL="../VariantTool/getValFromVariant_enum.vi"/>
 		</Item>
 		<Item Name="CmpTool" Type="Folder">
 			<Item Name="checkData.vi" Type="VI" URL="../CmpTool/checkData.vi"/>
@@ -112,9 +125,11 @@
 		<Item Name="SalTestTask" Type="Folder">
 			<Item Name="connectTask.vi" Type="VI" URL="../SalTestTask/connectTask.vi"/>
 			<Item Name="getEventTask.vi" Type="VI" URL="../SalTestTask/getEventTask.vi"/>
+			<Item Name="logEventTask.vi" Type="VI" URL="../SalTestTask/logEventTask.vi"/>
 		</Item>
 		<Item Name="testConnect.vi" Type="VI" URL="../testConnect.vi"/>
 		<Item Name="testGetEventTask.vi" Type="VI" URL="../testGetEventTask.vi"/>
+		<Item Name="testLogEventTask.vi" Type="VI" URL="../testLogEventTask.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
@@ -514,6 +529,8 @@
 				<Item Name="Get Cluster Element by Name__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Cluster Element by Name__ogtk.vi"/>
 				<Item Name="Get Cluster Element Names__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Cluster Element Names__ogtk.vi"/>
 				<Item Name="Get Cluster Elements TDs__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Cluster Elements TDs__ogtk.vi"/>
+				<Item Name="Array of VData to VCluster__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array of VData to VCluster__ogtk.vi"/>
+				<Item Name="Set Cluster Element by Name__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Set Cluster Element by Name__ogtk.vi"/>
 			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>

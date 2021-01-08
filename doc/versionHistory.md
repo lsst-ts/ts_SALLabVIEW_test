@@ -1,5 +1,9 @@
 # Version History
 
+0.0.5
+
+- Add the **testLogEventTask.vi** to test to log the SAL event by LabVIEW.
+
 0.0.4
 
 - Use the new docker image in **Jenkinsfile.labview** and remove the not-needed step.
